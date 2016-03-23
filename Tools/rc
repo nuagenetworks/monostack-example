@@ -1,0 +1,5 @@
+export TDL_USERNAME=root
+export TDL_PASSWORD=secret
+export TDL_API_URL=http://$(docker-machine ip default):3000
+export TDL_API_VERSION=1.0
+export TDL_ENTERPRISE=default

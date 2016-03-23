@@ -1,0 +1,108 @@
+#!/usr/bin/env python
+import os
+import logging
+
+# here we import the needed modules from garuda.
+from garuda import Garuda
+from garuda.channels.rest import GAFalconChannel
+from garuda.plugins.authentication import GASimpleAuthenticationPlugin
+from garuda.plugins.storage import GAMongoStoragePlugin
+from garuda.plugins.permissions import GAOwnerPermissionsPlugin
+
+
+def auth_function(request, session, root_object_class, storage_controller):
+    """
+        The auth fonction will be called by garuda in order to validate if an auth request
+        should be validated or not.
+
+        In this example, we keep it stupid, we are always ok.
+    """
+
+    # Garuda will give you the class representing the root object of the api.
+    # this object can be seen as a session. You need to create an instance out
+    # of it, and at least set the api_key.
+    auth = root_object_class()
+
+    # For the api_key, it is usually enough to pass the garuda session.uuid.
+    auth.api_key = session.uuid
+
+    # The id of the function must be unique. as we use a simple permission
+    # plugin later on, it makes it very easy to use the login here.
+    auth.id = request.username
+
+    # Then we return the newly created object.
+    return auth
+
+
+def start(falcon_port, sdk_name, mongo_host, mongo_port, mongo_db, redis_host, redis_port, redis_db):
+    """
+        Configure and starts the Garuda server
+    """
+
+    # We are creating a ReST server. Garuda provides a standard channel
+    # using Falcon to communicate.
+    channel = GAFalconChannel(port=falcon_port)
+
+    # This dict contains informations about the Redis host.
+    # Redis is used for various purposes, like keeping track of the cluster,
+    # providing an internal communication mechanism, or keeping track of the
+    # user sessions.
+    redis_info = {'host': redis_host, 'port': redis_port, 'db': redis_db}
+
+    # This dict contains the list of monolithe SDKs the garuda server will be
+    # using. In most of the cased you'll need only one. You need to give an
+    # identifier that should be 'default', and the python module name.
+    sdk_infos = [{'identifier': 'default', 'module': sdk_name}]
+
+    # We will be using MongoDB to store the data. Garuda can use any backend,
+    # but only provides the MongoDB storage. If you need something else, you can
+    # code it. B
+    mongo_uri = 'mongodb://%s:%d' % (mongo_host, mongo_port)
+    storage_plugin = GAMongoStoragePlugin(db_name=mongo_db, mongo_uri=mongo_uri)
+
+    # As we won't use complex authentication, we can use the standard simple
+    # authentication plugin. This plugin is actually delegating the authentication method
+    # to the auth_function we've created before.
+    authentication_plugin = GASimpleAuthenticationPlugin(auth_function=auth_function)
+
+    # Again, we won't go into complexe permission system, so we'll use the
+    # standard owner permission plugin. This plugin just ensure only the
+    # user who created an object can see and edit it. It doesn't need
+    # any additional configuration.
+    permissions_plugin = GAOwnerPermissionsPlugin()
+
+    # Finally, we create a Garuda instance, and we pass it all the needed
+    # information.
+    garuda = Garuda(sdks_info=sdk_infos,
+                    redis_info=redis_info,
+                    channels=[channel],
+                    plugins=[storage_plugin, authentication_plugin, permissions_plugin],
+                    log_level=logging.DEBUG)
+
+    # Allons-y!
+    garuda.start()
+
+
+if __name__ == '__main__':
+
+    # here we get default information from the environment.
+    # This is very useful when it comes to Docker containers.
+    garuda_sdk_name = os.environ['GARUDA_SDK_NAME'] if 'GARUDA_SDK_NAME' in os.environ else 'tdldk.v1_0'
+    garuda_port = int(os.environ['GARUDA_PORT']) if 'GARUDA_PORT' in os.environ else 3000
+    garuda_mongo_host = os.environ['GARUDA_MONGO_HOST'] if 'GARUDA_MONGO_HOST' in os.environ else '127.0.0.1'
+    garuda_mongo_port = int(os.environ['GARUDA_MONGO_PORT']) if 'GARUDA_MONGO_PORT' in os.environ else 27017
+    garuda_mongo_db = os.environ['GARUDA_MONGO_DB'] if 'GARUDA_MONGO_DB' in os.environ else 'tdl'
+    garuda_redis_host = os.environ['GARUDA_REDIS_HOST'] if 'GARUDA_REDIS_HOST' in os.environ else '127.0.0.1'
+    garuda_redis_port = int(os.environ['GARUDA_REDIS_PORT']) if 'GARUDA_REDIS_PORT' in os.environ else 6379
+    garuda_redis_db = int(os.environ['GARUDA_REDIS_DB']) if 'GARUDA_REDIS_DB' in os.environ else 6
+
+    start(falcon_port=garuda_port,
+          sdk_name=garuda_sdk_name,
+          mongo_host=garuda_mongo_host,
+          mongo_port=garuda_mongo_port,
+          mongo_db=garuda_mongo_db,
+          redis_host=garuda_redis_host,
+          redis_port=garuda_redis_port,
+          redis_db=garuda_redis_db)
+
+# As you can see this is extremly straightforward to get started :)

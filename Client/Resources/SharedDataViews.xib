@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15E64a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="DataViewsLoader">
+            <connections>
+                <outlet property="listDataView" destination="oKA-CR-Q4m" id="VFe-6G-rD3"/>
+                <outlet property="taskDataView" destination="1fb-V1-tDm" id="y69-ZL-SSM"/>
+                <outlet property="userDataView" destination="LOy-hi-wmb" id="jCB-wI-ys0"/>
+                <outlet property="view" destination="c22-O7-iKe" id="egd-Gh-GfA"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="58" height="39"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <point key="canvasLocation" x="117" y="288.5"/>
+        </customView>
+        <customView id="oKA-CR-Q4m" customClass="SKListDataView">
+            <rect key="frame" x="0.0" y="0.0" width="232" height="54"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="KbO-Ca-Ay8">
+                    <rect key="frame" x="40" y="29" width="184" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="Kz7-rs-6FH">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Fsp-gZ-Or0">
+                    <rect key="frame" x="40" y="12" width="184" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Description" id="u2r-id-V0I">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.20270270109999999" green="0.20270270109999999" blue="0.20270270109999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vQx-11-Xcf">
+                    <rect key="frame" x="10" y="19" width="24" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon-list" id="DBc-PJ-epk"/>
+                </imageView>
+            </subviews>
+            <connections>
+                <outlet property="fieldDescription" destination="Fsp-gZ-Or0" id="nLH-Dg-tbN"/>
+                <outlet property="fieldName" destination="KbO-Ca-Ay8" id="elJ-a6-hol"/>
+                <outlet property="fieldTitle" destination="KbO-Ca-Ay8" id="uV4-Y0-JvE"/>
+            </connections>
+            <point key="canvasLocation" x="176" y="139.5"/>
+        </customView>
+        <customView id="1fb-V1-tDm" customClass="SKTaskDataView">
+            <rect key="frame" x="0.0" y="0.0" width="205" height="54"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="LNC-gD-bo6">
+                    <rect key="frame" x="40" y="27" width="157" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="4WI-XO-lTD">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="WyP-xv-12T">
+                    <rect key="frame" x="40" y="10" width="157" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Description" id="7k2-ot-fRD">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.20270270109999999" green="0.20270270109999999" blue="0.20270270109999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView id="gff-nR-06w">
+                    <rect key="frame" x="10" y="20" width="24" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+            </subviews>
+            <connections>
+                <outlet property="fieldDescription" destination="WyP-xv-12T" id="nPu-jc-yI3"/>
+                <outlet property="fieldName" destination="LNC-gD-bo6" id="8mH-wQ-AXz"/>
+                <outlet property="viewStatus" destination="gff-nR-06w" id="xj0-Wq-k2I"/>
+            </connections>
+            <point key="canvasLocation" x="170.5" y="346"/>
+        </customView>
+        <customView id="LOy-hi-wmb" customClass="SKUserDataView">
+            <rect key="frame" x="0.0" y="0.0" width="203" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PkK-EB-EN3">
+                    <rect key="frame" x="9" y="56" width="184" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="First Name" id="cMD-zd-daO">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HgE-mq-9BZ">
+                    <rect key="frame" x="9" y="39" width="184" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Last Name" id="ygW-ZA-yWn">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Z5w-e4-ptC">
+                    <rect key="frame" x="49" y="22" width="144" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Login" id="w8q-bz-9iI">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="6Te-ff-8eV">
+                    <rect key="frame" x="49" y="5" width="144" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Age" id="kiw-05-rd5">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="pMj-cT-1cB">
+                    <rect key="frame" x="9" y="22" width="36" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Login" id="LMe-Yz-Cce">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.20270270109999999" green="0.20270270109999999" blue="0.20270270109999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PWQ-mR-NVb">
+                    <rect key="frame" x="9" y="5" width="36" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Age" id="CdD-o3-zZj">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.20270270109999999" green="0.20270270109999999" blue="0.20270270109999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <connections>
+                <outlet property="fieldAge" destination="6Te-ff-8eV" id="PxG-Nc-VLX"/>
+                <outlet property="fieldFirstName" destination="PkK-EB-EN3" id="PpK-pO-uFA"/>
+                <outlet property="fieldLastName" destination="HgE-mq-9BZ" id="dTr-wo-ePz"/>
+                <outlet property="fieldLogin" destination="Z5w-e4-ptC" id="Enz-yc-FvW"/>
+            </connections>
+            <point key="canvasLocation" x="184.5" y="470.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="icon-list" width="229.7872314453125" height="229.7872314453125"/>
+    </resources>
+</document>

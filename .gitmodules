@@ -1,0 +1,12 @@
+[submodule "Libraries/TNKit"]
+	path = Client/Libraries/TNKit
+	url = https://github.com/ArchipelProject/TNKit.git
+[submodule "Libraries/Bambou"]
+	path = Client/Libraries/Bambou
+	url = https://github.com/nuagenetworks/objj-bambou.git
+[submodule "Libraries/Cappuccino"]
+	path = Client/Libraries/Cappuccino
+	url = https://github.com/Cappuccino/Cappuccino.git
+# [submodule "Libraries/NUKit"]
+# 	path = Client/Libraries/NUKit
+# 	url = https://github.com/nuagenetworks/NUKit.git
