@@ -3,13 +3,11 @@ version: "2"
 services:
     mongo:
         image: mongo
-        container_name: tdlmongo
 
     redis:
         image: redis
-        container_name: tdlredis
 
-    tdlserver:
+    backend:
         image: tdlserver
         environment:
             - GARUDA_MONGO_HOST=mongo
