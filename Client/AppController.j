@@ -55,7 +55,6 @@
     [[NUKit kit] setDelegate:self];
     [[[NUKit kit] loginWindowController] setShowsEnterpriseField:NO];
     [[NUKit kit] setToolbarBackgroundColor:[CPColor colorWithHexString:@"cc433b"]];
-    [[NUKit kit] setFooterBackgroundColor:NUSkinColorBlack];
     [[NUKit kit] setToolbarForegroundColor:[CPColor colorWithHexString:@"fff"]];
     [[NUKit kit] configureContextDefaultFirstResponderTags:[@"description", @"value", @"lastName", @"firstName", @"title", @"name"]];
 
@@ -77,10 +76,4 @@
     [[NUKit kit] openInspectorForSelectedObject];
 }
 
-@end
-
-@implementation CPTextField (noinvalid)
-- (void)setInvalid:(BOOL)isInvalid reason:(CPString)aReason
-{
-}
 @end

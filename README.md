@@ -18,7 +18,9 @@ Finally, install `bambou` and `monolithe`:
     $ pip install git+https://github.com/nuagenetworks/monolithe.git
 
 
-## Build the SDK out of the Specifications
+## Server
+
+### Build the SDK
 
 In this repository you will find a folder named `Specifications`. It contains a Monolithe Specification Set that desribes the ToDo List. In a nutshell, it describes:
 
@@ -60,7 +62,7 @@ You can try it out by ensuring that the cli is correctly installed:
 As you can see, the cli did a bit of introspection, and found that the described api contains lists, tasks and users. We'll come back to this later.
 
 
-## Server
+### Build the Docker images
 
 Now we need a server to be able to serve this api. The server will be built on the top of the standard docker garuda image that you just pulled a few minutes ago.
 
@@ -88,6 +90,8 @@ It should be available in you local images:
     tdlserver     latest  a4ae5b7d3858   2 minutes ago   697.8 MB
 
 
+### Start the Docker containers
+
 We just need to start it using docker-compose (ensure you are in the `Server` folder):
 
     $ docker-compose up -d
@@ -104,6 +108,8 @@ And you should see them up and running:
     redis                /entrypoint.sh redis-server   Up      6379/tcp
     server_tdlserver_1   /bin/sh -c ./server           Up      0.0.0.0:3000->3000/tcp
 
+
+### Try it out
 
  Wanna try? Then you can use the `tdl` cli:
 
@@ -128,3 +134,11 @@ Bingo, Let's create one:
     +-----------------+--------------------------+
 
 You have a ready to use Todo List Server. Notice how it needs virtually no code?
+
+
+## Client
+
+
+### Build the SDK
+
+### Start the

@@ -10,3 +10,6 @@
 [submodule "Client/Libraries/Cappuccino"]
 	path = Client/Libraries/Cappuccino
 	url = https://github.com/cappuccino/cappuccino.git
+[submodule "Client/Libraries/NUFlat"]
+	path = Client/Libraries/NUFlat
+	url = https://github.com/nuagenetworks/nukit-theme.git

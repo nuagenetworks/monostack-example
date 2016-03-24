@@ -7,5 +7,5 @@ import nukit
 if __name__ == "__main__":
 
     additional_libraries = []
-
-    nukit.perform_build(additional_libraries=additional_libraries, war_name="ui")
+    additional_themes = [{"name": "NUFlat", "short_arg": "n"}]
+    nukit.perform_build(additional_libraries=additional_libraries, additional_themes=additional_themes)
