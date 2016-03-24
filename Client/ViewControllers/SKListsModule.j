@@ -42,17 +42,6 @@
     [self registerContext:context forClass:SKList];
 }
 
-- (CPSet)permittedActionsForObject:(id)anObject
-{
-    var permittedActionsSet     = [CPSet new];
-
-    [permittedActionsSet addObject:NUModuleActionAdd];
-    [permittedActionsSet addObject:NUModuleActionEdit];
-    [permittedActionsSet addObject:NUModuleActionDelete];
-
-    return permittedActionsSet;
-}
-
 - (BOOL)shouldManagePushOfType:(CPString)aType forEntityType:(CPString)entityType
 {
     return entityType === [SKList RESTName];

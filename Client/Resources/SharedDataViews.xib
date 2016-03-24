@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15E64a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DataViewsLoader">
@@ -50,9 +50,8 @@
             <connections>
                 <outlet property="fieldDescription" destination="Fsp-gZ-Or0" id="nLH-Dg-tbN"/>
                 <outlet property="fieldName" destination="KbO-Ca-Ay8" id="elJ-a6-hol"/>
-                <outlet property="fieldTitle" destination="KbO-Ca-Ay8" id="uV4-Y0-JvE"/>
             </connections>
-            <point key="canvasLocation" x="176" y="139.5"/>
+            <point key="canvasLocation" x="184" y="154"/>
         </customView>
         <customView id="1fb-V1-tDm" customClass="SKTaskDataView">
             <rect key="frame" x="0.0" y="0.0" width="205" height="54"/>
@@ -89,20 +88,20 @@
             <point key="canvasLocation" x="170.5" y="346"/>
         </customView>
         <customView id="LOy-hi-wmb" customClass="SKUserDataView">
-            <rect key="frame" x="0.0" y="0.0" width="203" height="75"/>
+            <rect key="frame" x="0.0" y="0.0" width="233" height="85"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PkK-EB-EN3">
-                    <rect key="frame" x="9" y="56" width="184" height="14"/>
+                    <rect key="frame" x="39" y="61" width="184" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="First Name" id="cMD-zd-daO">
-                        <font key="font" metaFont="smallSystem"/>
+                        <font key="font" metaFont="systemBold"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HgE-mq-9BZ">
-                    <rect key="frame" x="9" y="39" width="184" height="14"/>
+                    <rect key="frame" x="39" y="44" width="184" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Last Name" id="ygW-ZA-yWn">
                         <font key="font" metaFont="smallSystem"/>
@@ -111,7 +110,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Z5w-e4-ptC">
-                    <rect key="frame" x="49" y="22" width="144" height="14"/>
+                    <rect key="frame" x="79" y="27" width="144" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Login" id="w8q-bz-9iI">
                         <font key="font" metaFont="smallSystem"/>
@@ -120,7 +119,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="6Te-ff-8eV">
-                    <rect key="frame" x="49" y="5" width="144" height="14"/>
+                    <rect key="frame" x="79" y="10" width="144" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Age" id="kiw-05-rd5">
                         <font key="font" metaFont="smallSystem"/>
@@ -129,7 +128,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="pMj-cT-1cB">
-                    <rect key="frame" x="9" y="22" width="36" height="14"/>
+                    <rect key="frame" x="39" y="27" width="36" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Login" id="LMe-Yz-Cce">
                         <font key="font" metaFont="smallSystem"/>
@@ -138,7 +137,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PWQ-mR-NVb">
-                    <rect key="frame" x="9" y="5" width="36" height="14"/>
+                    <rect key="frame" x="39" y="10" width="36" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Age" id="CdD-o3-zZj">
                         <font key="font" metaFont="smallSystem"/>
@@ -146,6 +145,11 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="xdl-va-QzU">
+                    <rect key="frame" x="9" y="51" width="24" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon-user" id="505-Rc-W0j"/>
+                </imageView>
             </subviews>
             <connections>
                 <outlet property="fieldAge" destination="6Te-ff-8eV" id="PxG-Nc-VLX"/>
@@ -153,10 +157,11 @@
                 <outlet property="fieldLastName" destination="HgE-mq-9BZ" id="dTr-wo-ePz"/>
                 <outlet property="fieldLogin" destination="Z5w-e4-ptC" id="Enz-yc-FvW"/>
             </connections>
-            <point key="canvasLocation" x="184.5" y="470.5"/>
+            <point key="canvasLocation" x="169.5" y="470.5"/>
         </customView>
     </objects>
     <resources>
         <image name="icon-list" width="229.7872314453125" height="229.7872314453125"/>
+        <image name="icon-user" width="256" height="256"/>
     </resources>
 </document>

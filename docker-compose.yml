@@ -9,6 +9,7 @@ services:
 
     backend:
         image: tdlserver
+        build: Server
         environment:
             - GARUDA_MONGO_HOST=mongo
             - GARUDA_REDIS_HOST=redis

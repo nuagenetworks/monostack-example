@@ -13,10 +13,10 @@
 {
     [super bindDataView];
 
-    [fieldAge bind:CPValueBinding toObject:_objectValue withKeyPath:@"status" options:nil];
-    [fieldFirstName bind:CPValueBinding toObject:_objectValue withKeyPath:@"description" options:nil];
-    [fieldLastName bind:CPValueBinding toObject:_objectValue withKeyPath:@"title" options:nil];
-    [fieldLogin bind:CPValueBinding toObject:_objectValue withKeyPath:@"login" options:nil];
+    [fieldAge bind:CPValueBinding toObject:_objectValue withKeyPath:@"age" options:nil];
+    [fieldFirstName bind:CPValueBinding toObject:_objectValue withKeyPath:@"firstName" options:nil];
+    [fieldLastName bind:CPValueBinding toObject:_objectValue withKeyPath:@"lastName" options:nil];
+    [fieldLogin bind:CPValueBinding toObject:_objectValue withKeyPath:@"userName" options:nil];
 }
 
 - (id)initWithCoder:(CPCoder)aCoder

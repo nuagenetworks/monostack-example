@@ -1,294 +1,158 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <development version="6300" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SKTasksModule">
             <connections>
-                <outlet property="buttonBarMain" destination="71" id="89"/>
-                <outlet property="fieldModuleTitle" destination="73" id="mCU-EC-N6d"/>
-                <outlet property="fieldTotalEntities" destination="82" id="88"/>
-                <outlet property="filterField" destination="446" id="448"/>
-                <outlet property="popover" destination="141" id="164"/>
-                <outlet property="tableView" destination="77" id="359"/>
-                <outlet property="view" destination="1" id="2"/>
-                <outlet property="viewGettingStarted" destination="wov-HW-dEf" id="t2t-QJ-Bw5"/>
-                <outlet property="viewTitleContainer" destination="72" id="oJ8-Bw-IoX"/>
+                <outlet property="buttonBarMain" destination="mMf-Cg-1b1" id="tPF-fy-Mh3"/>
+                <outlet property="editorController" destination="lyF-ze-23v" id="3mW-TH-cp0"/>
+                <outlet property="fieldTotalEntities" destination="oN7-8S-3WJ" id="s3w-Ma-Uqh"/>
+                <outlet property="filterField" destination="NH8-4s-vHN" id="HfA-ba-7Bp"/>
+                <outlet property="popover" destination="7Ws-EB-dJo" id="I67-yB-qRe"/>
+                <outlet property="splitViewEditor" destination="ZMH-qn-MqJ" id="fou-B8-gVA"/>
+                <outlet property="tableView" destination="dmv-1U-odf" id="Tig-33-W9R"/>
+                <outlet property="taskEditorModule" destination="m1r-wP-yJy" id="8dE-9P-9oe"/>
+                <outlet property="view" destination="Mdq-fY-zQM" id="K1P-3i-uHk"/>
+                <outlet property="viewGettingStarted" destination="sjE-F5-ueU" id="gv5-Ne-iC6"/>
+                <outlet property="viewMainTableViewContainer" destination="b2Y-JG-dUF" id="Emf-Qb-21z"/>
+                <outlet property="viewTitleContainer" destination="FWl-bs-tpQ" id="MAJ-Is-iE7"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="1" userLabel="Main View">
-            <rect key="frame" x="0.0" y="0.0" width="509" height="395"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <customView id="72">
-                    <rect key="frame" x="0.0" y="363" width="509" height="32"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <searchField wantsLayer="YES" verticalHuggingPriority="750" id="446" customClass="NUExpandableSearchField">
-                            <rect key="frame" x="346" y="5" width="158" height="22"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" id="447">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </searchFieldCell>
-                        </searchField>
-                        <textField verticalHuggingPriority="750" id="73">
-                            <rect key="frame" x="7" y="7" width="44" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tasks" id="76">
-                                <font key="font" metaFont="system" size="15"/>
-                                <color key="textColor" red="0.34552848339999997" green="0.34552848339999997" blue="0.34552848339999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                    </subviews>
-                </customView>
-                <customView id="71" customClass="CPButtonBar">
-                    <rect key="frame" x="0.0" y="0.0" width="509" height="26"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                </customView>
-                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="58" horizontalPageScroll="10" verticalLineScroll="58" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="70">
-                    <rect key="frame" x="0.0" y="26" width="509" height="319"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <clipView key="contentView" id="YFw-9R-Dhy">
-                        <rect key="frame" x="0.0" y="0.0" width="509" height="319"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveColumns="NO" rowHeight="58" indentationPerLevel="14" outlineTableColumn="80" id="77">
-                                <rect key="frame" x="0.0" y="0.0" width="509.5" height="58"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <size key="intercellSpacing" width="3" height="0.0"/>
-                                <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                <tableColumns>
-                                    <tableColumn identifier="self" editable="NO" width="506.328125" minWidth="16" maxWidth="1000" id="80">
-                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                            <font key="font" metaFont="smallSystem"/>
-                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
-                                        </tableHeaderCell>
-                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="81">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                    </tableColumn>
-                                </tableColumns>
-                            </outlineView>
-                        </subviews>
-                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </clipView>
-                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="78">
-                        <rect key="frame" x="0.0" y="352" width="211.5" height="16"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </scroller>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="79">
-                        <rect key="frame" x="224" y="17" width="15" height="102"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </scroller>
-                </scrollView>
-                <customView id="69">
-                    <rect key="frame" x="0.0" y="345" width="509" height="19"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <textField verticalHuggingPriority="750" id="82">
-                            <rect key="frame" x="7" y="2" width="168" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="255" id="85">
-                                <font key="font" metaFont="smallSystem"/>
-                                <color key="textColor" red="0.34509804840000002" green="0.29019609089999998" blue="0.270588249" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="backgroundColor" red="0.34509804840000002" green="0.29019609089999998" blue="0.270588249" alpha="1" colorSpace="deviceRGB"/>
-                            </textFieldCell>
-                        </textField>
-                    </subviews>
-                </customView>
-            </subviews>
-            <point key="canvasLocation" x="-939.75" y="-170.5"/>
-        </customView>
-        <popover behavior="t" id="141">
+        <popover behavior="t" id="7Ws-EB-dJo">
             <connections>
-                <outlet property="contentViewController" destination="140" id="161"/>
+                <outlet property="contentViewController" destination="Szn-ic-dhm" id="Srs-z5-PTy"/>
             </connections>
         </popover>
-        <viewController id="140" userLabel="Popover VC">
+        <viewController id="Szn-ic-dhm" userLabel="Popover VC">
             <connections>
-                <outlet property="view" destination="142" id="KcD-wL-tFw"/>
+                <outlet property="view" destination="cTF-fG-i47" id="vJF-n9-0qP"/>
             </connections>
         </viewController>
-        <customView id="142" userLabel="Popover View">
-            <rect key="frame" x="0.0" y="0.0" width="365" height="306"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+        <customView id="Mdq-fY-zQM">
+            <rect key="frame" x="0.0" y="0.0" width="737" height="434"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField verticalHuggingPriority="750" id="148">
-                    <rect key="frame" x="20" y="197" width="325" height="22"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Object" drawsBackground="YES" id="154">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="name"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="required" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="nextKeyView" destination="146" id="162"/>
-                    </connections>
-                </textField>
-                <textField verticalHuggingPriority="750" id="147">
-                    <rect key="frame" x="17" y="227" width="55" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="155">
-                        <font key="font" metaFont="systemBold"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" id="146">
-                    <rect key="frame" x="20" y="137" width="325" height="22"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="My Object" drawsBackground="YES" id="156">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="description"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="nextKeyView" destination="148" id="163"/>
-                    </connections>
-                </textField>
-                <textField verticalHuggingPriority="750" id="145">
-                    <rect key="frame" x="17" y="167" width="76" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Description" id="157">
-                        <font key="font" metaFont="systemBold"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button toolTip="Save domain template" verticalHuggingPriority="750" id="150">
-                    <rect key="frame" x="270" y="13" width="81" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="push" title="Create" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="153">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="save"/>
-                    </userDefinedRuntimeAttributes>
-                </button>
-                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="149">
-                    <rect key="frame" x="0.0" y="59" width="365" height="5"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <font key="titleFont" metaFont="system"/>
-                </box>
-                <textField verticalHuggingPriority="750" id="151">
-                    <rect key="frame" x="17" y="254" width="330" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="New Task" id="152">
-                        <font key="font" metaFont="system" size="19"/>
-                        <color key="textColor" red="0.34552848339999997" green="0.34552848339999997" blue="0.34552848339999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </textFieldCell>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="title"/>
-                    </userDefinedRuntimeAttributes>
-                </textField>
-                <textField verticalHuggingPriority="750" id="144">
-                    <rect key="frame" x="73" y="222" width="274" height="13"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="validation error" id="158">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" red="0.98431378599999997" green="0.38823533059999998" blue="0.35294118520000001" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="validation_name"/>
-                    </userDefinedRuntimeAttributes>
-                </textField>
-                <textField verticalHuggingPriority="750" id="x89-rr-gVb">
-                    <rect key="frame" x="97" y="162" width="250" height="13"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="validation error" id="Ppv-3u-THE">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" red="0.98431378599999997" green="0.38823533059999998" blue="0.35294118520000001" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="validation_description"/>
-                    </userDefinedRuntimeAttributes>
-                </textField>
-                <textField verticalHuggingPriority="750" id="143">
-                    <rect key="frame" x="17" y="47" width="330" height="13"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="right" title="Server ERROR" id="159">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" red="0.98431378599999997" green="0.38823533059999998" blue="0.35294118520000001" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="validation_serverError"/>
-                    </userDefinedRuntimeAttributes>
-                </textField>
-                <textField verticalHuggingPriority="750" id="4Yc-fV-dAD">
-                    <rect key="frame" x="18" y="107" width="76" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status" id="Ig2-9H-dQK">
-                        <font key="font" metaFont="systemBold"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <popUpButton verticalHuggingPriority="750" id="QmJ-dI-602">
-                    <rect key="frame" x="18" y="75" width="330" height="26"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="push" title="Todo" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="g3r-ai-CMM" id="FmC-bR-n5t">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
-                        <menu key="menu" id="TDw-Tv-OJK">
-                            <items>
-                                <menuItem title="Todo" state="on" id="g3r-ai-CMM">
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="TODO"/>
-                                    </userDefinedRuntimeAttributes>
-                                </menuItem>
-                                <menuItem title="Done" id="vNE-KN-Gme">
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="DONE"/>
-                                    </userDefinedRuntimeAttributes>
-                                </menuItem>
-                            </items>
-                        </menu>
-                    </popUpButtonCell>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="status"/>
-                    </userDefinedRuntimeAttributes>
-                </popUpButton>
+                <splitView dividerStyle="thin" vertical="YES" id="ZMH-qn-MqJ">
+                    <rect key="frame" x="0.0" y="0.0" width="737" height="434"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <customView id="b2Y-JG-dUF">
+                            <rect key="frame" x="0.0" y="0.0" width="491" height="434"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <customView id="FWl-bs-tpQ">
+                                    <rect key="frame" x="0.0" y="402" width="491" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <subviews>
+                                        <searchField wantsLayer="YES" verticalHuggingPriority="750" id="NH8-4s-vHN">
+                                            <rect key="frame" x="323" y="5" width="158" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="BnA-Nb-yVq">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </searchFieldCell>
+                                        </searchField>
+                                        <textField verticalHuggingPriority="750" id="Hvi-u0-QBZ">
+                                            <rect key="frame" x="7" y="7" width="168" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tasks" id="ZJL-TZ-DH6">
+                                                <font key="font" metaFont="system" size="15"/>
+                                                <color key="textColor" red="0.34552848339999997" green="0.34552848339999997" blue="0.34552848339999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </customView>
+                                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="214" horizontalPageScroll="10" verticalLineScroll="214" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="svS-l2-gMb">
+                                    <rect key="frame" x="0.0" y="25" width="491" height="359"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <clipView key="contentView" id="6QD-BR-qRz">
+                                        <rect key="frame" x="0.0" y="0.0" width="491" height="359"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveColumns="NO" rowHeight="214" id="dmv-1U-odf">
+                                                <rect key="frame" x="0.0" y="0.0" width="491" height="214"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                <tableColumns>
+                                                    <tableColumn identifier="self" editable="NO" width="490.99609375" minWidth="40" maxWidth="100000" id="eJk-mN-Oee">
+                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Users">
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </tableHeaderCell>
+                                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="bBW-BR-u8k">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    </tableColumn>
+                                                </tableColumns>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </clipView>
+                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="LMk-2d-hJf">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="iQT-Dm-1hG">
+                                        <rect key="frame" x="470" y="0.0" width="16" height="212"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                </scrollView>
+                                <customView id="mMf-Cg-1b1" customClass="CPButtonBar">
+                                    <rect key="frame" x="0.0" y="0.0" width="491" height="26"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                </customView>
+                                <customView id="G3B-zn-aC6">
+                                    <rect key="frame" x="0.0" y="384" width="491" height="19"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" id="oN7-8S-3WJ">
+                                            <rect key="frame" x="7" y="2" width="176" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="255" id="2nM-uz-D58">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" red="0.34509804840000002" green="0.29019609089999998" blue="0.270588249" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="backgroundColor" red="0.34509804840000002" green="0.29019609089999998" blue="0.270588249" alpha="1" colorSpace="deviceRGB"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </customView>
+                            </subviews>
+                        </customView>
+                        <customView id="CqD-Gk-fnC">
+                            <rect key="frame" x="492" y="0.0" width="245" height="434"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </customView>
+                    </subviews>
+                    <holdingPriorities>
+                        <real value="250"/>
+                        <real value="250"/>
+                    </holdingPriorities>
+                </splitView>
             </subviews>
-            <point key="canvasLocation" x="-600.5" y="81"/>
+            <point key="canvasLocation" x="376.5" y="287"/>
         </customView>
-        <customView id="wov-HW-dEf" userLabel="Getting Started View">
-            <rect key="frame" x="0.0" y="0.0" width="438" height="293"/>
+        <customView id="sjE-F5-ueU">
+            <rect key="frame" x="0.0" y="0.0" width="438" height="284"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView id="q5n-gu-5m2">
-                    <rect key="frame" x="0.0" y="24" width="438" height="244"/>
+                <customView id="s94-fA-1d5">
+                    <rect key="frame" x="0.0" y="20" width="438" height="244"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="XUK-3o-7an">
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="K2g-ai-wk3">
                             <rect key="frame" x="18" y="201" width="402" height="23"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tasks" id="HYh-Bl-KtT">
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tasks" id="bar-Lc-qtg">
                                 <font key="font" metaFont="system" size="19"/>
                                 <color key="textColor" red="0.34509804840000002" green="0.63529413940000001" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -297,10 +161,10 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="tag" value="title"/>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="rNq-7i-1GG">
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TZP-xb-KQZ">
                             <rect key="frame" x="18" y="56" width="402" height="137"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Task represents something to do." id="m9A-57-zbk">
+                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Urgent things to do" id="qFH-dd-4n5">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" red="0.4156863093" green="0.4156863093" blue="0.4156863093" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -309,14 +173,14 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="tag" value="description"/>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <customView id="UXS-0m-Sbh">
+                        <customView id="8FC-sX-F07">
                             <rect key="frame" x="20" y="20" width="398" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button toolTip="Create a new object" id="oWF-kc-0UN">
+                                <button toolTip="Create a new object" id="RoR-aL-fVb">
                                     <rect key="frame" x="183" y="0.0" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" inset="2" id="a8w-G6-cpS">
+                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" inset="2" id="X7S-9b-c5a">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
@@ -335,7 +199,205 @@
                     </userDefinedRuntimeAttributes>
                 </customView>
             </subviews>
-            <point key="canvasLocation" x="-1048" y="246.5"/>
+            <point key="canvasLocation" x="836" y="53"/>
         </customView>
+        <viewController id="lyF-ze-23v" customClass="NUEditorsViewController">
+            <connections>
+                <outlet property="view" destination="CqD-Gk-fnC" id="Gkd-xa-4Bp"/>
+                <outlet property="viewMultipleSelection" destination="rnu-Co-9l0" id="ku7-4o-Av5"/>
+                <outlet property="viewNoSelection" destination="Wcp-NW-iIh" id="0wv-M0-vCb"/>
+            </connections>
+        </viewController>
+        <customView id="Wcp-NW-iIh" userLabel="Empty Editor View">
+            <rect key="frame" x="0.0" y="0.0" width="163" height="234"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Ghy-to-26s">
+                    <rect key="frame" x="32" y="108" width="99" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="No Selection" id="MY5-UF-LJI">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" red="0.69411766529999996" green="0.69411766529999996" blue="0.69411766529999996" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
+        <customView id="rnu-Co-9l0">
+            <rect key="frame" x="0.0" y="0.0" width="163" height="234"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Fkt-qn-hkn">
+                    <rect key="frame" x="15" y="108" width="133" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Multiple Selection" id="ppg-Ux-gze">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" red="0.69411766529999996" green="0.69411766529999996" blue="0.69411766529999996" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
+        <customView id="cTF-fG-i47" userLabel="Popover View">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="294"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" id="eQm-70-JLv">
+                    <rect key="frame" x="20" y="185" width="325" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Object" drawsBackground="YES" id="2JL-zP-krU">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="name"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="required" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="nextKeyView" destination="mdz-M6-wED" id="VuF-zj-9wo"/>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" id="v19-xk-T66">
+                    <rect key="frame" x="18" y="215" width="55" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name" id="e2f-OZ-Ns8">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField toolTip="Description of the L2 Domain template" verticalHuggingPriority="750" id="mdz-M6-wED">
+                    <rect key="frame" x="20" y="130" width="325" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="My Object" drawsBackground="YES" id="eum-pg-kP5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="description"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField verticalHuggingPriority="750" id="Npt-b5-OLo">
+                    <rect key="frame" x="18" y="160" width="89" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Description" id="cVt-IU-QGi">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="RGo-Dn-jGZ">
+                    <rect key="frame" x="18" y="105" width="89" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status" id="8v8-gc-YDQ">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button toolTip="Save domain template" verticalHuggingPriority="750" id="4aa-x6-LaC">
+                    <rect key="frame" x="270" y="13" width="81" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="Create" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JOx-Hv-VS7">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="save"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="0gB-Mc-6th">
+                    <rect key="frame" x="0.0" y="59" width="365" height="5"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
+                </box>
+                <textField verticalHuggingPriority="750" id="REp-YK-moK">
+                    <rect key="frame" x="18" y="242" width="329" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="New Object" id="mfV-3I-IPA">
+                        <font key="font" metaFont="system" size="19"/>
+                        <color key="textColor" red="0.34552848339999997" green="0.34552848339999997" blue="0.34552848339999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </textFieldCell>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="title"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField verticalHuggingPriority="750" id="4vS-jE-rGY">
+                    <rect key="frame" x="74" y="210" width="273" height="13"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="validation error" id="hAg-Fk-qHr">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" red="0.98431378599999997" green="0.38823533059999998" blue="0.35294118520000001" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="validation_name"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField verticalHuggingPriority="750" id="f43-uL-4pW">
+                    <rect key="frame" x="17" y="47" width="330" height="13"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="right" title="Server ERROR" id="Qst-wb-DM2">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" red="0.98431378599999997" green="0.38823533059999998" blue="0.35294118520000001" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="validation_serverError"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <customView id="TKy-7T-U7W" customClass="CPButton">
+                    <rect key="frame" x="251" y="23" width="16" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="button-help"/>
+                    </userDefinedRuntimeAttributes>
+                </customView>
+                <textField verticalHuggingPriority="750" id="lHI-Ip-ebg">
+                    <rect key="frame" x="105" y="159" width="242" height="13"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="validation error" id="G3J-3k-yTR">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" red="0.98431378599999997" green="0.38823533059999998" blue="0.35294118520000001" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="validation_description"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="iKP-DQ-LSt">
+                    <rect key="frame" x="18" y="73" width="330" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="push" title="Todo" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="vyZ-b9-1jj" id="5js-NJ-JM9">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="ZRh-wl-xL8">
+                            <items>
+                                <menuItem title="Todo" state="on" id="vyZ-b9-1jj">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="TODO"/>
+                                    </userDefinedRuntimeAttributes>
+                                </menuItem>
+                                <menuItem title="Done" id="Cmi-rK-CPi">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="DONE"/>
+                                    </userDefinedRuntimeAttributes>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="status"/>
+                    </userDefinedRuntimeAttributes>
+                </popUpButton>
+            </subviews>
+            <point key="canvasLocation" x="226.5" y="416"/>
+        </customView>
+        <viewController nibName="TaskEditor" id="m1r-wP-yJy" customClass="SKTaskEditorModule"/>
     </objects>
 </document>

@@ -32,8 +32,10 @@
 
 @implementation AppController : CPObject
 {
-    @outlet DataViewsLoader dataViewsLoader;
-    @outlet SKListsModule   listsModule;
+    @outlet DataViewsLoader         dataViewsLoader;
+    @outlet SKListsModule           listsModule;
+    @outlet SKUsersModule           usersModule;
+    @outlet SKConfigurationModule   configurationModule;
 }
 
 
@@ -58,6 +60,7 @@
     [[NUKit kit] setToolbarForegroundColor:[CPColor colorWithHexString:@"fff"]];
     [[NUKit kit] configureContextDefaultFirstResponderTags:[@"description", @"value", @"lastName", @"firstName", @"title", @"name"]];
 
+    [[NUKit kit] setDelegate:self];
     [[NUKit kit] parseStandardApplicationArguments];
     [[NUKit kit] loadFrameworkDataViews];
 
@@ -66,14 +69,30 @@
     // Modules Registration
     [[NUKit kit] registerCoreModule:listsModule];
 
+    [[NUKit kit] registerPrincipalModule:configurationModule
+                         withButtonImage:CPImageInBundle(@"toolbar-configuration.png", 32.0, 32.0)
+                                altImage:CPImageInBundle(@"toolbar-configuration-pressed.png", 32.0, 32.0)
+                                 toolTip:@"Open Configuration"
+                              identifier:@"button-toolbar-configuration"
+                        availableToRoles:nil];
+
+
     // Make NUKit listening to internal notifications.
     [[NUKit kit] startListenNotification];
     [[NUKit kit] manageLoginWindow];
+
+    [[[NUKitToolBar defaultToolBar] buttonLogout] setValue:CPImageInBundle(@"toolbar-logout-red.png", 32.0, 32.0) forThemeAttribute:@"image" inState:CPThemeStateNormal];
 }
 
 - (IBAction)openInspector:(id)aSender
 {
     [[NUKit kit] openInspectorForSelectedObject];
+}
+
+- (void)applicationDidLogin:(NUKitApp)aKit
+{
+    // makes everyone a root guy!
+    [[SKRoot defaultUser] setRole:NUPermissionLevelRoot];
 }
 
 @end
