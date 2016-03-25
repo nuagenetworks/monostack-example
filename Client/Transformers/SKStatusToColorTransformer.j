@@ -1,5 +1,10 @@
 @import <Foundation/Foundation.j>
 
+@global SKTaskStatus_DONE
+@global SKTaskStatus_PROGRESS
+@global SKTaskStatus_TODO
+
+
 @implementation SKStatusToColorTransformer : CPValueTransformer
 
 + (Class)transformedValueClass
@@ -16,10 +21,13 @@
 {
     switch (aValue)
     {
-        case @"TODO":
+        case SKTaskStatus_TODO:
             return NUSkinColorRed;
 
-        case @"DONE":
+        case SKTaskStatus_PROGRESS:
+            return NUSkinColorOrange;
+
+        case SKTaskStatus_DONE:
             return NUSkinColorGreen;
     }
 }

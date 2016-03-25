@@ -384,7 +384,12 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="tag" value="TODO"/>
                                     </userDefinedRuntimeAttributes>
                                 </menuItem>
-                                <menuItem title="Done" id="Cmi-rK-CPi">
+                                <menuItem title="In Progress" id="Cmi-rK-CPi">
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="tag" value="PROGRESS"/>
+                                    </userDefinedRuntimeAttributes>
+                                </menuItem>
+                                <menuItem title="Done" id="gs7-LB-FGw">
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="tag" value="DONE"/>
                                     </userDefinedRuntimeAttributes>

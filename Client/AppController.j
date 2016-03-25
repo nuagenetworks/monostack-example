@@ -64,7 +64,7 @@
     [[NUKit kit] setCompanyLogo:CPImageInBundle("Branding/logo-company.png")];
     [[NUKit kit] setApplicationName:BRANDING_INFORMATION["label-application-name"]];
     [[NUKit kit] setApplicationLogo:CPImageInBundle("Branding/logo-application.png")];
-    [[NUKit kit] setCopyright:@"My copyright"];
+    [[NUKit kit] setCopyright:@"Copyright \u00A9 2042 My Super Company"];
     [[NUKit kit] setAutoServerBaseURL:SERVER_AUTO_URL];
     [[NUKit kit] setDelegate:self];
     [[[NUKit kit] loginWindowController] setShowsEnterpriseField:NO];
@@ -99,7 +99,7 @@
     [[NUKit kit] openInspectorForSelectedObject];
 }
 
-- (void)applicationDidLogin:(NUKitApp)aKit
+- (void)applicationDidLogin:(NUKit)aKit
 {
     // makes everyone a root guy!
     [[SKRoot current] setRole:NUPermissionLevelRoot];
