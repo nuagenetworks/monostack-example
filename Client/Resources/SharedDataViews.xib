@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="DataViewsLoader">
             <connections>
                 <outlet property="listDataView" destination="oKA-CR-Q4m" id="VFe-6G-rD3"/>
+                <outlet property="locationDataView" destination="CmA-Ch-pS3" id="OeP-VV-vsy"/>
                 <outlet property="taskDataView" destination="1fb-V1-tDm" id="y69-ZL-SSM"/>
                 <outlet property="userDataView" destination="LOy-hi-wmb" id="jCB-wI-ys0"/>
                 <outlet property="view" destination="c22-O7-iKe" id="egd-Gh-GfA"/>
@@ -85,7 +86,7 @@
                 <outlet property="fieldName" destination="LNC-gD-bo6" id="8mH-wQ-AXz"/>
                 <outlet property="viewStatus" destination="gff-nR-06w" id="xj0-Wq-k2I"/>
             </connections>
-            <point key="canvasLocation" x="170.5" y="346"/>
+            <point key="canvasLocation" x="170.5" y="254"/>
         </customView>
         <customView id="LOy-hi-wmb" customClass="SKUserDataView">
             <rect key="frame" x="0.0" y="0.0" width="233" height="85"/>
@@ -157,7 +158,41 @@
                 <outlet property="fieldLastName" destination="HgE-mq-9BZ" id="dTr-wo-ePz"/>
                 <outlet property="fieldLogin" destination="Z5w-e4-ptC" id="Enz-yc-FvW"/>
             </connections>
-            <point key="canvasLocation" x="169.5" y="470.5"/>
+            <point key="canvasLocation" x="183.5" y="370.5"/>
+        </customView>
+        <customView id="CmA-Ch-pS3" customClass="SKLocationDataView">
+            <rect key="frame" x="0.0" y="0.0" width="232" height="54"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Q2C-qZ-Ms3">
+                    <rect key="frame" x="40" y="26" width="184" height="17"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name" id="pLs-6d-EO0">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Bp6-uI-ftA">
+                    <rect key="frame" x="40" y="9" width="184" height="14"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Address" id="VdK-m4-jZU">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.20270270109999999" green="0.20270270109999999" blue="0.20270270109999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ARI-aG-GGo">
+                    <rect key="frame" x="10" y="19" width="24" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon-list" id="duz-B9-KFF"/>
+                </imageView>
+            </subviews>
+            <connections>
+                <outlet property="fieldAddress" destination="Bp6-uI-ftA" id="co3-Cj-yvP"/>
+                <outlet property="fieldName" destination="Q2C-qZ-Ms3" id="xg8-1D-kBD"/>
+            </connections>
+            <point key="canvasLocation" x="190" y="527"/>
         </customView>
     </objects>
     <resources>

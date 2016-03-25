@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SKConfigurationModule">
             <connections>
                 <outlet property="buttonBack" destination="RQT-4a-bHH" id="6Az-FS-Hkd"/>
+                <outlet property="locationsModule" destination="w45-pV-raV" id="EPc-N4-094"/>
                 <outlet property="tabViewContent" destination="f7i-q2-S1w" id="dbt-mi-YYX"/>
                 <outlet property="usersModule" destination="SMy-MO-mXJ" id="rcg-ld-vjE"/>
                 <outlet property="view" destination="tR7-pc-Tlk" id="jd8-mM-ExR"/>
@@ -51,5 +52,6 @@
             <point key="canvasLocation" x="329" y="370.5"/>
         </view>
         <viewController nibName="Users" id="SMy-MO-mXJ" customClass="SKUsersModule"/>
+        <viewController nibName="Locations" id="w45-pV-raV" customClass="SKLocationsModule"/>
     </objects>
 </document>

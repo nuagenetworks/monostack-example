@@ -11,6 +11,7 @@
                 <outlet property="fieldModuleTitle" destination="73" id="mCU-EC-N6d"/>
                 <outlet property="fieldTotalEntities" destination="82" id="88"/>
                 <outlet property="filterField" destination="446" id="448"/>
+                <outlet property="locationAssociator" destination="2J1-VV-7w4" id="7z2-Rk-hHx"/>
                 <outlet property="maskingView" destination="360" id="365"/>
                 <outlet property="popover" destination="141" id="164"/>
                 <outlet property="splitViewMain" destination="26" id="369"/>
@@ -75,7 +76,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveColumns="NO" rowHeight="58" indentationPerLevel="14" outlineTableColumn="80" id="77">
-                                                <rect key="frame" x="0.0" y="0.0" width="215.5" height="58"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="215.5" height="369"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <size key="intercellSpacing" width="3" height="0.0"/>
                                                 <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -161,11 +162,11 @@
             </connections>
         </viewController>
         <customView id="142" userLabel="Popover View">
-            <rect key="frame" x="0.0" y="0.0" width="365" height="244"/>
+            <rect key="frame" x="0.0" y="0.0" width="365" height="339"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField verticalHuggingPriority="750" id="148">
-                    <rect key="frame" x="20" y="135" width="325" height="22"/>
+                    <rect key="frame" x="20" y="230" width="325" height="22"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="List" drawsBackground="YES" id="154">
                         <font key="font" metaFont="system"/>
@@ -181,7 +182,7 @@
                     </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" id="147">
-                    <rect key="frame" x="17" y="165" width="55" height="17"/>
+                    <rect key="frame" x="17" y="260" width="55" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name" id="155">
                         <font key="font" metaFont="systemBold"/>
@@ -208,7 +209,7 @@
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <textField verticalHuggingPriority="750" id="151">
-                    <rect key="frame" x="17" y="192" width="330" height="32"/>
+                    <rect key="frame" x="17" y="287" width="330" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="New List" id="152">
                         <font key="font" metaFont="system" size="19"/>
@@ -220,7 +221,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField verticalHuggingPriority="750" id="144">
-                    <rect key="frame" x="73" y="160" width="274" height="13"/>
+                    <rect key="frame" x="73" y="255" width="274" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="validation error" id="158">
                         <font key="font" metaFont="miniSystem"/>
@@ -244,7 +245,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField verticalHuggingPriority="750" id="146">
-                    <rect key="frame" x="20" y="75" width="325" height="22"/>
+                    <rect key="frame" x="20" y="170" width="325" height="22"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="My List" drawsBackground="YES" id="156">
                         <font key="font" metaFont="system"/>
@@ -259,7 +260,7 @@
                     </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" id="145">
-                    <rect key="frame" x="17" y="105" width="76" height="17"/>
+                    <rect key="frame" x="17" y="200" width="76" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Description" id="157">
                         <font key="font" metaFont="systemBold"/>
@@ -268,7 +269,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="x89-rr-gVb">
-                    <rect key="frame" x="97" y="100" width="250" height="13"/>
+                    <rect key="frame" x="97" y="195" width="250" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="validation error" id="Ppv-3u-THE">
                         <font key="font" metaFont="miniSystem"/>
@@ -279,8 +280,21 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="tag" value="validation_description"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
+                <textField verticalHuggingPriority="750" id="I6S-TL-ChM">
+                    <rect key="frame" x="18" y="145" width="76" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Location" id="Mep-Zb-nv6">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView id="rL2-AC-qqr">
+                    <rect key="frame" x="19" y="71" width="325" height="66"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
             </subviews>
-            <point key="canvasLocation" x="-606.5" y="-250"/>
+            <point key="canvasLocation" x="-628.5" y="-299.5"/>
         </customView>
         <customView id="360" userLabel="Masking View">
             <rect key="frame" x="0.0" y="0.0" width="519" height="362"/>
@@ -379,6 +393,11 @@
             <point key="canvasLocation" x="-1357.5" y="270.5"/>
         </customView>
         <viewController nibName="Tasks" id="amA-2d-8QQ" customClass="SKTasksModule"/>
+        <viewController id="2J1-VV-7w4" customClass="SKLocationAssociator">
+            <connections>
+                <outlet property="view" destination="rL2-AC-qqr" id="p5w-NS-S4A"/>
+            </connections>
+        </viewController>
     </objects>
     <resources>
         <image name="logo-application" width="245.75999450683594" height="245.75999450683594"/>

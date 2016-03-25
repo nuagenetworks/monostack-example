@@ -8,6 +8,7 @@
 @implementation SKListsModule : NUModule
 {
     @outlet SKTasksModule tasksModule;
+    @outlet SKLocationAssociator locationAssociator;
 }
 
 + (BOOL)automaticSelectionSaving
@@ -50,6 +51,16 @@
 - (BOOL)shouldProcessJSONObject:(id)aJSONObject ofType:(CPString)aType eventType:(CPString)anEventType
 {
     return (aType === [SKList RESTName]);
+}
+
+- (void)moduleContext:(NUModuleContext)aContext willManageObject:(NURESTObject)anObject
+{
+    [locationAssociator setCurrentParent:anObject];
+}
+
+- (void)moduleContext:(NUModuleContext)aContext didManageObject:(NURESTObject)anObject
+{
+    [locationAssociator setCurrentParent:nil];
 }
 
 @end

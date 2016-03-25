@@ -23,6 +23,8 @@
 @import "Models/Models.j"
 @import "ViewControllers/ViewControllers.j"
 @import "Transformers/Transformers.j"
+@import "Associators/Associators.j"
+
 
 @global BRANDING_INFORMATION
 @global SERVER_AUTO_URL

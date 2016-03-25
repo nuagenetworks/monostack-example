@@ -2,6 +2,7 @@
 
 @import "SKConfigurationModule.j"
 @import "SKListsModule.j"
+@import "SKLocationsModule.j"
 @import "SKTasksModule.j"
 @import "SKTaskUsersAssignationModule.j"
 @import "SKUsersModule.j"

@@ -2,5 +2,6 @@
 
 @import "DataViewsLoader.j"
 @import "SKListDataView.j"
+@import "SKLocationDataView.j"
 @import "SKTaskDataView.j"
 @import "SKUserDataView.j"
