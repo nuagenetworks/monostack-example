@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <customView id="f7i-q2-S1w" customClass="TNTabView">
-                    <rect key="frame" x="0.0" y="0.0" width="636" height="448"/>
+                    <rect key="frame" x="0.0" y="0.0" width="636" height="423"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </customView>
                 <customView identifier="container" id="EwK-6q-FM8">
