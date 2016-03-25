@@ -12,6 +12,7 @@ COPY tdldk-1.0.tar.gz /eggs/tdldk-1.0.tar.gz
 
 # We also add our server file.
 COPY server /
+COPY listlogic.py /
 
 # Then we install the tdldk, and we clean everything up
 RUN pip install /eggs/tdldk-1.0.tar.gz && rm -rf /eggs
