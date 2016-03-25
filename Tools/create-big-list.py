@@ -4,7 +4,7 @@ import subprocess
 
 api_url = 'http://%s:3000' % subprocess.check_output(["docker-machine", "ip", "default"]).replace('\n', '')
 
-session = t.SKTDLSession(username='root', password='secret', enterprise='none', api_url=api_url)
+session = t.SKTDLSession(username='primalmotion', password='secret', enterprise='none', api_url=api_url)
 session.start()
 
 todo_list = t.SKList(name='Big List', description='A very big list indeed')
