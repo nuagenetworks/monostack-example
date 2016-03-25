@@ -42,7 +42,7 @@
 
 - (NUVSDObject)parentOfAssociatedObject
 {
-    return [SKRoot defaultUser];
+    return [SKRoot current];
 }
 
 - (void)assignObjects:(CPArray)someObjects

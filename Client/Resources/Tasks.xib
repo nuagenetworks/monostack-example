@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="buttonBarMain" destination="mMf-Cg-1b1" id="tPF-fy-Mh3"/>
                 <outlet property="editorController" destination="lyF-ze-23v" id="3mW-TH-cp0"/>
+                <outlet property="fieldModuleTitle" destination="Hvi-u0-QBZ" id="h3H-y4-msK"/>
                 <outlet property="fieldTotalEntities" destination="oN7-8S-3WJ" id="s3w-Ma-Uqh"/>
                 <outlet property="filterField" destination="NH8-4s-vHN" id="HfA-ba-7Bp"/>
                 <outlet property="popover" destination="7Ws-EB-dJo" id="I67-yB-qRe"/>
@@ -48,7 +49,7 @@
                                     <rect key="frame" x="0.0" y="402" width="491" height="32"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <subviews>
-                                        <searchField wantsLayer="YES" verticalHuggingPriority="750" id="NH8-4s-vHN">
+                                        <searchField wantsLayer="YES" verticalHuggingPriority="750" id="NH8-4s-vHN" customClass="NUExpandableSearchField">
                                             <rect key="frame" x="323" y="5" width="158" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="BnA-Nb-yVq">
@@ -58,7 +59,7 @@
                                             </searchFieldCell>
                                         </searchField>
                                         <textField verticalHuggingPriority="750" id="Hvi-u0-QBZ">
-                                            <rect key="frame" x="7" y="7" width="168" height="19"/>
+                                            <rect key="frame" x="8" y="7" width="168" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tasks" id="ZJL-TZ-DH6">
                                                 <font key="font" metaFont="system" size="15"/>

@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
 
-    [viewTitleContainer setBackgroundColor:[CPColor colorWithHexString:@"f76961"]];
+    [viewTitleContainer setBackgroundColor:NUSkinColorBlack];
     [viewTitleContainer setBorderBottomColor:nil];
 
     [self setSubModules:[usersModule]];

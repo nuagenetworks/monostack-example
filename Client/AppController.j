@@ -47,6 +47,18 @@
     [CPMenu setMenuBarVisible:NO];
     [dataViewsLoader load];
 
+    var config = [[NUKit kit] moduleColorConfiguration];
+    [config setObject:[CPColor colorWithHexString:@"f76961"] forKey:@"title-container-view-background"];
+    [config setObject:[CPColor colorWithHexString:@"fff"] forKey:@"title-field-foreground"];
+    [config setObject:[CPColor colorWithHexString:@"f76961"] forKey:@"subtitle-container-view-background"];
+    [config setObject:[CPColor colorWithHexString:@"fff"] forKey:@"subtitle-field-foreground"];
+    [config setObject:[CPColor colorWithHexString:@"cc433b"] forKey:@"edition-popover-title-foreground"];
+    [config setObject:[CPColor colorWithHexString:@"cc433b"] forKey:@"toolbar-background"];
+    [config setObject:[CPColor colorWithHexString:@"fff"] forKey:@"toolbar-foreground"];
+    [config setObject:[CPColor colorWithHexString:@"cc433b"] forKey:@"chooser-popover-banner-background"];
+    [config setObject:[CPColor colorWithHexString:@"fff"] forKey:@"chooser-popover-banner-foreground"];
+    [[NUKit kit] setModuleColorConfiguration:config];
+
     // Configure NUKit
     [[NUKit kit] setCompanyName:BRANDING_INFORMATION["label-company-name"]];
     [[NUKit kit] setCompanyLogo:CPImageInBundle("Branding/logo-company.png")];
@@ -56,15 +68,13 @@
     [[NUKit kit] setAutoServerBaseURL:SERVER_AUTO_URL];
     [[NUKit kit] setDelegate:self];
     [[[NUKit kit] loginWindowController] setShowsEnterpriseField:NO];
-    [[NUKit kit] setToolbarBackgroundColor:[CPColor colorWithHexString:@"cc433b"]];
-    [[NUKit kit] setToolbarForegroundColor:[CPColor colorWithHexString:@"fff"]];
     [[NUKit kit] configureContextDefaultFirstResponderTags:[@"description", @"value", @"lastName", @"firstName", @"title", @"name"]];
 
     [[NUKit kit] setDelegate:self];
     [[NUKit kit] parseStandardApplicationArguments];
     [[NUKit kit] loadFrameworkDataViews];
 
-    [[NUKit kit] setRootAPI:[SKRoot defaultUser]];
+    [[NUKit kit] setRootAPI:[SKRoot current]];
 
     // Modules Registration
     [[NUKit kit] registerCoreModule:listsModule];
@@ -92,7 +102,7 @@
 - (void)applicationDidLogin:(NUKitApp)aKit
 {
     // makes everyone a root guy!
-    [[SKRoot defaultUser] setRole:NUPermissionLevelRoot];
+    [[SKRoot current] setRole:NUPermissionLevelRoot];
 }
 
 @end
