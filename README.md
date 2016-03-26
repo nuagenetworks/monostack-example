@@ -1,19 +1,43 @@
 # Monolithe Stack Example
 
-This repository contains a ready to use example of the entire Monolithe Stack. This example contains everything you need to build a ToDo List application from the specifications, up to the client.
+This repository contains the tutorial used during the CappCon2016 in Liege. It will walk you through the creation of a ToDoList app, from the specification to the UI. As a disclaimer, the user experience for a todo list provided by this tutorial is quite terrible :). We could do way better, but we want to keep things as standard as possible. But when you will be done reading this tutorial, feel free to explore the stacks and see if you can make it way better (hint: you can!)
+
+We will do the following:
+
+- Getting started by installed the prerequisites;
+- Installing the Monolithe Specifications Director;
+- Improving the a set of Specifications with the Monolithe Specifications Director;
+- Build a Garuda backend based on these Specifications;
+- Improve a basic NUKit UI to take care of the improvements of the Specifications.
+
+The projects we will be using are:
+
+- [https://github.com/nuagenetworks/bambou](https://github.com/nuagenetworks/bambou)
+- [https://github.com/nuagenetworks/objj-bambou](https://github.com/nuagenetworks/objj-bambou)
+- [https://github.com/nuagenetworks/monolithe](https://github.com/nuagenetworks/monolithe)
+- [https://github.com/nuagenetworks/specifications-director](https://github.com/nuagenetworks/specifications-director)
+- [https://github.com/nuagenetworks/garuda](https://github.com/nuagenetworks/garuda)
+- [https://github.com/nuagenetworks/nukit](https://github.com/nuagenetworks/nukit)
+- [https://github.com/nuagenetworks/nukit-theme](https://github.com/nuagenetworks/nukit-theme)
+
+We will also use the following Docker images:
+
+- [https://hub.docker.com/r/monolithe/garuda/](https://hub.docker.com/r/monolithe/garuda/)
+- [https://hub.docker.com/r/monolithe/specsdirector-client/](https://hub.docker.com/r/monolithe/specsdirector-client/)
+- [https://hub.docker.com/r/monolithe/specsdirector-server/](https://hub.docker.com/r/monolithe/specsdirector-server/)
+
+You will need [Docker](https://docs.docker.com/engine/installation/) for this entire tutorial.
 
 
 ## Prerequisites
-
-You need [Docker](https://docs.docker.com/engine/installation/).
 
 Fork this repository:
 
     $ open https://github.com/nuagenetworks/monostack-example/fork
 
-Clone your fork on your machine:
+Clone **your fork** on your machine:
 
-    $ git clone --recursive https://github.com/[your-github-username]/monostack-example.git
+    $ git clone --recursive https://github.com/[YOUR-GITHUB-USERNAME]/monostack-example.git
     $ cd monostack-example
 
 Create a Python virtual environment:
@@ -25,20 +49,26 @@ Install these two Python packages:
     $ pip install git+https://github.com/nuagenetworks/bambou.git
     $ pip install git+https://github.com/nuagenetworks/monolithe.git
 
-Pull the docker following images:
+Pull the docker following images (so the rest will be faster):
 
     $ docker pull monolithe/garuda
     $ docker pull monolithe/specsdirector-client
     $ docker pull monolithe/specsdirector-server
+    $ docker pull redis
+    $ docker pull mongo
 
-Get a GitHub Token:
+Generate a GitHub Token:
 
     $ open https://github.com/settings/tokens/new
 
-Leave all the default values, click on `generate`. Copy the token somewhere (**you won't be able to see it again if you close the page**).
+Leave all the default values, click on `generate`. Copy the token somewhere
+
+> You won't be able to see it again if you close the page, so keep it somewhere.
 
 
-## Install and run the Monolithe Specifications Director
+## Monolithe Specifications Director
+
+### Installation
 
 Get the docker-compose file for the Specifications Director:
 
@@ -48,42 +78,50 @@ Start the Specifications Director:
 
     $ docker-compose -f specifications-director.yml up -d
 
-Now, you should be able access the specifications director:
+You should be able access the Monolithe Specifications Director by running the following command:
 
     $ open https://$(docker-machine ip)
 
-There is no authentication enabled. You can log in with any couple of login/password. The server field needs to be:
+> Authentication is not enabled. You can log in with any couple of login/password.
+
+The server field needs to be:
 
     $ echo https://$(docker-machine ip):1984
     https://192.168.99.100:1984
 
+ Log into the Specifications Director
 
- Log into the Specifications Director  click on the top right gear icon, click on the `+` button, enter:
+### Add your GitHub token
+
+Click on the top right gear icon, then click on the `+` button and enter the following values:
+
 - Name: `GitHub` (or whatever you like)
-- Value: `[your-github-token]`
+- Value: `[YOUR-GITHUB-TOKEN]`
 
-Then click on `Create`. Then click on the back button, at the top right corner, to leave the configuration view.
+Click on `Create` then click on the `Back` button at the top right corner, to leave the configuration view.
 
-Click on the `+` button to add a new repository and enter the following values:
+On the main view, click on the `+` button to add a new GitHub Repository and enter the following values:
 
 - Name: `TDLDK` (or whatever you like)
 - GitHub API URL: `https://api.github.com`
-- Github Repository: `[your-github-username]` / `monostack-example` @`mater`
+- Github Repository: `[YOUR-GITHUB-USERNAME]` / `monostack-example` @`master`
 - Path to Specifications: `Specifications`
 - Token: click on the paper clip to associate your GitHub Token
 
-Click save and it will create the new Repository. Select it. As this is the first time, the repository will be pulled. When the job is done, you will see the representation of all the Specifications present in `https://github.com/[your-github-username]/monostack-example/tree/master/Specifications`.
+Click `Create` and it will create the new Repository. Select it.
 
-## Improve the specifications with the Specification Director
+As this is the first time, the repository will be automatically pulled. When the job is complete, you will see the representation of all the Specifications present in `https://github.com/[your-github-username]/monostack-example/tree/master/Specifications` in the UI.
 
-The current Specifications describe a simple ToDo list. It has some users and some *Lists* at the root level. *Lists* have some *Tasks*, and *Users* can be associated to a particular *Task*.
+## Improve the specifications
 
-Now we want to add a new object top level api *Locations* that will have a required `name` and an `address` as attributes. Then we want to be able to associate one (and only one) *Location* to a *List*.
+The current Specifications describe a simple ToDo List api. It has some *Users* and some *Lists* at the root level. *Lists* have some *Tasks*, and *Users* can be associated to a particular *Task*.
 
-### Create a Location Specification
+We want to add a new top level api *Locations* that will have `name` and `address` as attributes. We also want to be able to associate one (and only one) *Location* to a *List*.
 
-- Select your `TDLDK` Repository.
-- Click on the `+` button at the bottom of the list of Specifications to create a new specification. Enter the following:
+#### Create a Location specification
+
+Select your `TDLDK` Repository then click on the `+` button at the bottom of the list of Specifications to create a new specification. Enter the following values:
+
     - ReST Name: `location`
     - Resource Name: `locations` (should be auto populated)
     - Entity Name: `Location` (should be auto populated)
@@ -91,28 +129,32 @@ Now we want to add a new object top level api *Locations* that will have a requi
 
 Click on `Create`.
 
-### Create a the attributes for Location
+#### Create a the attributes for location
 
 Select the newly created *Location* specification. Select the `Attributes` tab, then click the `+` button to add a new attribute. Enter the following values:
 
 - Name: `address`
 - Description: `The address of the location.`
 
-Click `Create`. Create a second one:
+Click `Create`.
+
+Create a second one with the following values:
 
 - Name: `name`
 - Description: `The name of the location.`
 
 Click `Create`.
 
-Now select the newly created `name` attribute, and on the right hand editor, scroll down to find and enable the checkbox `required`. Then click on the `Update` button at the bottom.
+Now select the newly created `name` attribute, and on the right hand side editor, scroll down to find and enable the checkbox named `required`.
 
-### Attach it to the root API
+Then click on the `Update` button at the bottom to save the changes.
 
-On the Specifications, select the one named `root`. Then select the tab `Children APIs`. Click the `+` button to add a new children API:
+#### Make the location a root level api
+
+From the Specifications list, select the one named `root`. Then select the `Children APIs` tab. Click the `+` button to add a new children api:
 
 - Relationship Type: `Parent/Child relationship`
-- Specification: Click on the paper clip to select the newly created `location` specification
+- Specification: Click on the paper clip and select the newly created `location` specification
 - Operations (all default):
     - Allow Retrieval: checked
     - Allow Creation: checked
@@ -120,69 +162,81 @@ On the Specifications, select the one named `root`. Then select the tab `Childre
     - Allow Bulk Modification: not checked
     - Allow Bulk Deletion: not checked
 
-Then click the `Create` button
+Then click the `Create` button.
 
+#### Add the association key to the list specification
 
-### Add the association key to the existing list specification
-
-Select the existing *list* specification in the Specifications list, then go the the Attribute part. Add a new attribute:
+Select the existing *list* specification in the Specifications list, then go the the `Attributes` tab. Add a new attribute:
 
 - Name: `associatedLocationID`
 - Description: `ID of the associated location.`
 
 Then click `Update`.
 
+### Check what you did on GitHub
 
-### Check what you just did on GitHub
+Every action you did created a commit on GitHub. This allows to have a really cool workflow as you will be able to open pull requests, and review your specifications with the rest of your team. To check that out, Click on the button `GitHub`, on the top right corner to get open the page, then take a look at the commit list.
 
-Every action you did created a commit on GitHub. This allows to have a really cool workflow as you will be able to open pull requests, and review your specifications with the rest of your team. You check that out, Click on the button `GitHub`, on the top right corner to get open the page, then look at the commit list.
+We didn't do any fork, or branching here, but in a normal scenario, you should. Multiple people can work on their part of the specs, open pull requests that will be merged into the master after review.
 
-We didn't do any fork, or branching here, but in a normal scenario, you should. Multiple people can work on a part of the specs, then open pull requests that will be merged into the master. You can then click on the `Synchronize` button to pull the latest changes. If you are working on a fork, the Specifications Director will also merge back the upstream's master branch right into your development branch when you click the `Synchronize` button.
+You can then click on the `Synchronize` button at any time to pull the latest changes from GitHub. If you are working on a fork, the Specifications Director will also merge back the upstream's master branch right into your development branch when you click the `Synchronize` button.
 
 Life is good!
 
 
+## TodoList Application
 
-## TodoList
+The monostack-example repository already contains the code for the server implementing this Specifications and client to interact with it.
 
-Now let's put all of this on the side for now. The monostack-example repository already contains the code for the client and the server that are implementing the ToDoList application. Let's pull our latest changed in the API
+First of all, let's pull our latest changed in the api from GitHub in your local fork:
 
     $ git pull
 
-Now you should see a `location.spec` in the Specification folder.
-
+Now you should see a `location.spec` in the `Specifications` folder.
 
 ### Server
 
-The backend is a Garuda based library. Garuda is an application server that will provide for basically everything you need to run your applications based on Monolithe Specifications. You normally just need to write your custom business logic. Everything else is automatic. It relies on some Monolithe SDK. Here we'll generate a sdk based the todo list specifications and inject it into out server.
+The backend is a Garuda based server. Garuda is a Python application server that will provide everything you need to run your applications based on any Monolithe SDK generated from some Specifications. You will just need to write your custom business logic. Everything else, like CRUD operations, basic validation, push notifications, is completely automatic. It relies on some Monolithe SDK.
+
+Here we'll generate a sdk based the todo list specifications and inject it into out server.
+
+> We won't add any custom business logic in that tutorial, and you will see that for basic operations, you don't need any.
 
 Generate the Python SDK:
 
     $ monogen --folder Specifications --language python
 
-The generated code will be available in `codegen/python`.
+You can take a look at the generated code in `codegen/python`.
 
-Create an egg from the generated code:
+Create an package from the generated code:
 
     $ cd codegen/python && python setup.py sdist && cd -
 
-Then copy the package where our Dockerfile expects it to be:
+Copy the package where our Dockerfile expects it to be:
 
     $ cp codegen/python/dist/tdldk-1.0.tar.gz Server
 
-Finally let's build and start the ToDoList server:
+Finally let's build and start the ToDoList server using Docker Compose:
 
     $ cd Server && docker build -t tdlserver . && docker-compose up -d && cd -
 
-Your server is now up and running. As we want to ensure that everything is working correctly, we'll use the cli provided by the generated sdk. So let's install our generated python package on our local machine:
+Your server is now up and running. As we want to ensure that everything is working as expected, we'll use the cli provided by the generated SDK to try it out.
+
+> As you can see, the exact same SDK is used as a backend with Garuda, as a client library to write your own scripts, and for the cli. Monolithe can also generate SDK in various language such as Go, Objective-J, Java, and also HTML documentation. If you want to take a look at the documentation, run `monogen -d Specifications -L html` and open the `index.html` from `codegen/html` in your browser.
+
+Let's install our generated python package on our local machine:
 
     $ pip install --upgrade server/tdldk-1.0.tar.gz
 
-You can give the `tdl` several arguments to pass your credentials and api url. You can also use environment variables which makes it easier. Take a look at the `Tools/rc` file. It exports some variables so we don't have to pass them manually. To use this, run:
+In addition to being able to write Python scripts using the SDK, the `tdl` command will now be available. You can give the `tdl` several arguments to pass your credentials and api url. You can also use environment variables which makes it easier. Take a look at the `Tools/rc` file. It exports some variables so we don't have to pass them manually.
+
+To use this, run:
 
     $ source Tools/rc
 
-Then the `tdl` command will be available. You can check the objects it manages by simply doing:
+> You can also take a look at `Tools/create-locations.py` which is a script that will create 200 locations.
+
+You can check the objects declared in the api by doing:
 
     $ tdl objects
     [Success] 4 objects found.
@@ -195,7 +249,7 @@ Then the `tdl` command will be available. You can check the objects it manages b
     | users     |
     +-----------+
 
-We can now create a list:
+We can now create a *List*:
 
     $ tdl create list -p name="My First List" description="Very cool list indeed"
     [Success] list has been created with ID=56f61a853b959c0017344cec
@@ -211,7 +265,7 @@ We can now create a list:
     | name                 | My First List            |
     +----------------------+--------------------------+
 
-Or a location:
+Or a *Location*:
 
     $ tdl create location -p name="Nuage Networks" address="380 N Bernardo Ave, Mountain View, CA 94043"
     [Success] location has been created with ID=56f61a943b959c0011344cec
@@ -226,7 +280,7 @@ Or a location:
     | ID              | 56f61a943b959c0011344cec                    |
     +-----------------+---------------------------------------------+
 
-You can get a more machine friendly output using the `--json` option:
+You can get a more machine-friendly output using the `--json` option:
 
     $ tdl list locations --json
     [
@@ -242,32 +296,32 @@ You can get a more machine friendly output using the `--json` option:
         }
     ]
 
-As you can see, the exact same Monolithe generated SDK is used by the backend to handle the model CRUD operations, as well as a client library and a cli for you to interact with the backend.
+Everything is working as expected.
 
 
 ### Client
 
-> You need Xcode to work on the UI. It is also preferable that you understand Cappuccino or Cocoa. The goal of this tutorial is not explain how Cappuccino work. If you don't know Cappuccino or should you need more information, please visit http://cappuccino-project.org. Cappuccino rocks!
+> You need Xcode to work on the UI. It is also preferable that you understand Cappuccino. The goal of this tutorial is not explain how Cappuccino works. If you don't know Cappuccino or should you need any additional information, please visit http://cappuccino-project.org. Cappuccino rocks!
 
-> You also need to manage this project with XcodeCapp.
+Let's see about the client. You will need Cappuccino to be installed in order to have this to work. To install it if you don't have it:
 
-Let's see about the client. You will need Cappuccino to be installed in order to have this to work. To install it:
+> if you already have cappuccino installed, be sure to be on the latest master. You can simply go to `Client/Libraries/Cappuccino` and run `jake install` from here.
 
     $ export CAPP_BUILD="/tmp/cappbuild"
     $ cd Client && ./buildApp --cappuccino --cappinstalldir=/tmp/narwhal
     $ export PATH="/tmp/narwhal/bin:$PATH"
 
-> if you already have cappuccino installed, be sure to be on the latest master. You can simply go to `Client/Libraries/Cappuccino` and run `jake install` from here.
+> You now need to manage this project with XcodeCapp. Simply drop the `Client` folder into the XcodeCapp icon and add `/tmp/narwhal/bin` as an additional Toolchain Path.
 
-Let's build the rest of the libraries.
+Let's build the rest of the needed libraries:
 
     $ git submodule update --init # just in case you missed the --recursive during clone :)
     $ ./buildApp -L
 
-Now, let's generate the Model source code with Monolithe and put it where it should be:
+Now, generate the Objective-J SDK with Monolithe and put it where it should be:
 
     $ cd ..
-    $ monogen -f Specifications --language objj
+    $ monogen -f Specifications -L objj
     $ mkdir Client/Models && cp -a codegen/objj/* Client/Models
     $ cd Client
 
@@ -279,20 +333,20 @@ Come back to your main terminal, and access the UI:
 
     open http://127.0.0.1:8000
 
-You can log in using any credentials, but if you want to see the list and location you created before, the user name needs to be `root` as this is the one that is defined in the `Tools/rc`, so the created objects belongs to that user. The server address should be:
+You can log in using any credentials, but if you want to see the list and location you created before with the cli, the user name needs to be `root` as this is the one that is defined in the `Tools/rc`. The created objects belongs to that user and will only be visible by him. The server address should be:
 
     $ echo https://$(docker-machine ip):3000
     https://192.168.99.100:3000
 
-Now you can play around the UI and see how everthing work fine :).
+Now you can play around the UI and see how everything is working smoothly :).
 
-One thing you'll notice is that there is nowhere the new location can be found. That's because we are going to add the needed code to build the UI for the *location* object.
+One thing you'll notice is that the new location api is nowhere to be found. This is because we are going to add the needed code to build the UI for it.
 
-We want to add the location UI in the configuration panel, near the *Users*. So let's Start
+We want to add the location UI in the configuration panel, near the *Users*. So let's do this.
 
 #### The Data View
 
-We need a data view to display the location. NUKit provides a code template for it, so let's use it:
+We need a data view to display the location. NUKit provides some code templates for it, so let's use it:
 
     $ cp Libraries/NUKit/Tools/Templates/SourceCode/DataView.j DataViews/SKLocationDataView.j
 
@@ -300,7 +354,7 @@ It also provide a tool to generate the needed import file:
 
     $ cd DataViews && ../Libraries/NUKit/Tools/genimp -r && cd -
 
-Now you will see that the content of `DataViews/DataViews.j` has been updated. Now we need to edit `DataViews/SKLocationDataView.j` and make it look like:
+You can see that the content of `DataViews/DataViews.j` has been updated. Now we need to edit `DataViews/SKLocationDataView.j` and make it look like:
 
 ```objj
 @import <Foundation/Foundation.j>
@@ -343,7 +397,9 @@ Now you will see that the content of `DataViews/DataViews.j` has been updated. N
 @end
 ```
 
-Then we need prepare the data views loader and add one outlet for this new data view. Edit `DataViews/DataViewLoader.j` and make it look like:
+We need to prepare the data views loader and add one outlet for this new data view. This object is responsible to register all the data views in a central places, so they can be accessed easily from anywhere you need them.
+
+Edit `DataViews/DataViewLoader.j` and make it look like:
 
 ```objj
 @import <Foundation/Foundation.j>
@@ -363,7 +419,7 @@ Then we need prepare the data views loader and add one outlet for this new data 
 @end
 ```
 
-Finally we need to edit `Resources/SharedDataViews.xib` to add a new view:
+Finally we need to edit `Resources/SharedDataViews.xib` to add our new `SKLocationDataView`:
 
 - Drop a new custom view
 - Set its class name to be SKLocationDataView
@@ -373,10 +429,9 @@ Finally we need to edit `Resources/SharedDataViews.xib` to add a new view:
 
 ![animation](Images/tuto-shareddataviews-xib.gif)
 
-
 #### The Location Module
 
-We need a module to manage the list of *Locations*. Again, let's use the templates:
+We need a module to manage the list of *Locations*. Again, let's use the NUKit templates:
 
     $ cp Libraries/NUKit/Tools/Templates/SourceCode/Module.j ViewControllers/SKLocationsModule.j
     $ cp Libraries/NUKit/Tools/Templates/XIBs/LeafModule.xib Resources/Locations.xib
@@ -425,7 +480,9 @@ Now edit the `ViewControllers/SKLocationsModule.j` and make it look like:
 @end
 ```
 
-We said that we want to display this module at the same level than the *Users* module. The *Users* module is actually a sub module of the principal module `ViewControllers/SKConfigurationModule.j`. So let's edit this file and make it look like:
+We said that we want to display this module at the same level than the *Users* module. The *Users* module is actually a sub module of the principal module `SKConfigurationModule`. So let's add our `SKLocationsModule` as a submodule too.
+
+Edit `ViewControllers/SKConfigurationModule.j` and make it look like:
 
 ```objj
 @import <Foundation/Foundation.j>
@@ -485,7 +542,7 @@ We now need to edit the `Resources/Configuration.xib`:
 
 ![animation](Images/tuto-locations-xib.gif)
 
-Finally, we need to adjust the `Locations.xib`
+Finally, we need to work on the `Locations.xib`
 
 - Set the File's Owner class name to be `SKLocationsModule`
 - Set the Main View title to be `Locations`
@@ -497,10 +554,9 @@ Finally, we need to adjust the `Locations.xib`
 
 ![animation](Images/tuto-locations-xib.gif)
 
-
 #### The Location Associator
 
-The last thing we need to do is to allow the user to associate a *List* to a *Location*. To do so, we need an associator:
+The last thing we need to do is to be able to associate a *Location* to a *List*. To do so, we need an associator:
 
     $ cp Libraries/NUKit/Tools/Templates/SourceCode/Associator.j Associators/SKLocationAssociator.j
     $ cd Associators && ../Libraries/NUKit/Tools/genimp -r && cd -
@@ -553,7 +609,9 @@ Now edit `Associators/SKLocationAssociator.j` and make it look like:
 @end
 ```
 
-Now we need to use this associator in the `ViewControllers/SKListsModule.j`. Edit the file and make it look like:
+We need to use this associator in the `ViewControllers/SKListsModule.j`.
+
+Edit the file and make it look like:
 
 ```objj
 @import <Foundation/Foundation.j>
@@ -637,6 +695,15 @@ Finally, edit `Resources/Lists.xib`:
 ![animation](Images/tuto-lists-xib.gif)
 
 
-### And we are done.
+## And we are done!
 
-Reload the UI, and enjoy all the features you have for free! We just scratched the surface of what can be done with Monolithe Stack.
+Reload the UI, and enjoy what you have done! As you can see, you create full fledge features with very little code. We've just scratched the surface of what can be done with Monolithe Stack, and you need more information, you can checkout the various repositories using in this tutorial, and especially the source code of the Monolithe Specifications Director, which is a very complete application.
+
+We are using this stack and processes at (Nuage Networks)[https://nuagenetworks.net] for quite a while, and our life is a breathe since then.
+
+We hope you enjoyed this tutorial, and we can't wait to see what awesome things you will build using this stack.
+
+Happy coding!
+
+--
+The Nuage Networks UI/UX Team
