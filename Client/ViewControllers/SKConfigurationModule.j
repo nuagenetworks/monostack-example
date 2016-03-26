@@ -2,7 +2,8 @@
 @import <NUKit/NUModule.j>
 @import "../Models/Models.j"
 
-@global SKUsersModule
+@class SKUsersModule
+
 
 @implementation SKConfigurationModule: NUModule
 {

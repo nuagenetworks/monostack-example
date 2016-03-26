@@ -36,7 +36,6 @@
 {
     @outlet DataViewsLoader         dataViewsLoader;
     @outlet SKListsModule           listsModule;
-    @outlet SKUsersModule           usersModule;
     @outlet SKConfigurationModule   configurationModule;
 }
 
