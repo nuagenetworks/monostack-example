@@ -134,7 +134,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <customView id="430" customClass="TNTabView">
-                                            <rect key="frame" x="0.0" y="0.0" width="421" height="470"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="421" height="445"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </customView>
                                     </subviews>

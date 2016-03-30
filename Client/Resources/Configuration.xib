@@ -48,7 +48,7 @@
                     </subviews>
                 </customView>
             </subviews>
-            <point key="canvasLocation" x="329" y="370.5"/>
+            <point key="canvasLocation" x="388" y="370.5"/>
         </view>
         <viewController nibName="Users" id="SMy-MO-mXJ" customClass="SKUsersModule"/>
     </objects>
