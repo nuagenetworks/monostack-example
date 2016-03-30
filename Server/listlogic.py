@@ -22,7 +22,7 @@ class ListsBusinessLogic(GALogicPlugin):
                                     "list": [GARequest.ACTION_CREATE]
                                 })
 
-    def will_perform_write(self, context):
+    def will_perform_create(self, context):
         """
         """
         # the context contains all needed
