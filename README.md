@@ -122,10 +122,10 @@ We want to add a new top level api *Locations* that will have `name` and `addres
 
 Select your `TDLDK` Repository then click on the `+` button at the bottom of the list of Specifications to create a new specification. Enter the following values:
 
-    - ReST Name: `location`
-    - Resource Name: `locations` (should be auto populated)
-    - Entity Name: `Location` (should be auto populated)
-    - Root API Specification: not checked (default)
+- ReST Name: `location`
+- Resource Name: `locations` (should be auto populated)
+- Entity Name: `Location` (should be auto populated)
+- Root API Specification: not checked (default)
 
 Click on `Create`.
 
