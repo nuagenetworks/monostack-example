@@ -222,7 +222,7 @@ Finally let's build and start the ToDoList server using Docker Compose:
 
 Your server is now up and running. As we want to ensure that everything is working as expected, we'll use the cli provided by the generated SDK to try it out.
 
-> As you can see, the exact same SDK is used as a backend with Garuda, as a client library to write your own scripts, and for the cli. Monolithe can also generate SDK in various language such as Go, Objective-J, Java, and also HTML documentation. If you want to take a look at the documentation, run `monogen -d Specifications -L html` and open the `index.html` from `codegen/html` in your browser.
+> As you can see, the exact same SDK is used as a backend with Garuda, as a client library to write your own scripts, and for the cli. Monolithe can also generate SDK in various language such as Go, Objective-J, Java, and also HTML documentation. If you want to take a look at the documentation, run `monogen -f Specifications -L html` and open the `index.html` from `codegen/html` in your browser.
 
 Let's install our generated python package on our local machine:
 
@@ -311,12 +311,12 @@ Let's see about the client. You will need Cappuccino to be installed in order to
     $ cd Client && ./buildApp --cappuccino --cappinstalldir=/tmp/narwhal
     $ export PATH="/tmp/narwhal/bin:$PATH"
 
-> You now need to manage this project with XcodeCapp. Simply drop the `Client` folder into the XcodeCapp icon and add `/tmp/narwhal/bin` as an additional Toolchain Path.
-
 Let's build the rest of the needed libraries:
 
     $ git submodule update --init # just in case you missed the --recursive during clone :)
     $ ./buildApp -L
+
+> You now need to manage this project with XcodeCapp. Simply drop the `Client` folder into the XcodeCapp icon and add `/tmp/narwhal/bin` in the `Additional Toolchain Path` list.
 
 Now, generate the Objective-J SDK with Monolithe and put it where it should be:
 
