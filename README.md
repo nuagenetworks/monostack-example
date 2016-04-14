@@ -540,7 +540,7 @@ We now need to edit the `Resources/Configuration.xib`:
 - Set the NIB Name the `SKLocationsModule` to be `Locations`
 - Connect the File's Owner outlet `locationsModule` to the `SKLocationsModule` object.
 
-![animation](Images/tuto-locations-xib.gif)
+![animation](Images/tuto-configuration-xib.gif)
 
 Finally, we need to work on the `Locations.xib`
 
