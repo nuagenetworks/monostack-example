@@ -335,8 +335,8 @@ Come back to your main terminal, and access the UI:
 
 You can log in using any credentials, but if you want to see the list and location you created before with the cli, the user name needs to be `root` as this is the one that is defined in the `Tools/rc`. The created objects belongs to that user and will only be visible by him. The server address should be:
 
-    $ echo https://$(docker-machine ip):3000
-    https://192.168.99.100:3000
+    $ echo http://$(docker-machine ip):3000
+    http://192.168.99.100:3000
 
 Now you can play around the UI and see how everything is working smoothly :).
 
