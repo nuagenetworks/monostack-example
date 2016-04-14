@@ -489,8 +489,8 @@ Edit `ViewControllers/SKConfigurationModule.j` and make it look like:
 @import <NUKit/NUModule.j>
 @import "../Models/Models.j"
 
-@global SKUsersModule
-@global SKLocationsModule
+@class SKUsersModule
+@class SKLocationsModule
 
 
 @implementation SKConfigurationModule: NUModule
